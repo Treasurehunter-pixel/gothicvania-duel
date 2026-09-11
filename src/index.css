@@ -1,0 +1,140 @@
+:root {
+  --ground: #0c0b0a;
+  --panel: #161311;
+  --panel-2: #1e1a16;
+  --edge: #2c2823;
+  --ink: #e9dfc9;
+  --muted: #8d8474;
+  --blood: #bb3a2c;
+  --blood-bright: #e0503d;
+  --ember: #e0993a;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+}
+
+/* Fullscreen game viewport — nothing else on the page. */
+.gameRoot {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #050403;
+  overflow: hidden;
+}
+
+/* Letterboxed 480:270 frame — the largest 16:9 box that fits the viewport. */
+.frame {
+  position: relative;
+  width: min(100vw, calc(100vh * 480 / 270));
+  height: min(100vh, calc(100vw * 270 / 480));
+  line-height: 0;
+}
+
+.frame canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  touch-action: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  background: rgba(8, 7, 6, 0.74);
+  backdrop-filter: blur(2px);
+  line-height: 1.4;
+  padding: 24px;
+}
+
+.overlay h2 {
+  font-family: 'Pirata One', serif;
+  font-weight: 400;
+  margin: 0;
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  color: var(--blood-bright);
+  text-shadow: 0 0 24px rgba(187, 58, 44, 0.5);
+}
+
+.overlay p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.98rem;
+  max-width: 42ch;
+}
+
+.overlay .final {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.overlay .final b {
+  color: var(--ember);
+  font-size: 1.4rem;
+  display: block;
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+button.action {
+  font-family: 'Oswald', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--edge);
+  border-radius: 2px;
+  padding: 11px 22px;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.05s;
+}
+
+button.action:hover {
+  border-color: var(--blood);
+}
+
+button.action:active {
+  transform: translateY(1px);
+}
+
+button.action:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
