@@ -81,11 +81,37 @@ body {
   text-shadow: 0 0 24px rgba(187, 58, 44, 0.5);
 }
 
+.overlay h2.victoryTitle {
+  color: var(--ember);
+  text-shadow: 0 0 24px rgba(224, 153, 58, 0.55);
+}
+
 .overlay p {
   margin: 0;
   color: var(--ink);
   font-size: 0.98rem;
   max-width: 42ch;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 14px;
+  font-family: 'Oswald', system-ui, sans-serif;
+  font-size: 0.72rem;
+  color: var(--muted);
+  max-width: 42ch;
+}
+
+.controls b {
+  color: var(--ink);
+  background: var(--panel-2);
+  border: 1px solid var(--edge);
+  border-radius: 2px;
+  padding: 1px 5px;
+  margin-right: 3px;
+  font-weight: 600;
 }
 
 .overlay .final {
@@ -102,6 +128,68 @@ body {
   display: block;
   margin-top: 2px;
   font-variant-numeric: tabular-nums;
+}
+
+.upgradeGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 46ch;
+}
+
+.upgradeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 108px;
+  font-family: 'Oswald', system-ui, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--edge);
+  border-radius: 2px;
+  padding: 12px 8px 10px;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.05s;
+}
+
+.upgradeCard:hover {
+  border-color: var(--ember);
+}
+
+.upgradeCard:active {
+  transform: translateY(1px);
+}
+
+.upgradeCard:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 2px;
+}
+
+.upgradeIcon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.upgradeTitle {
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ember);
+  text-align: center;
+}
+
+.upgradeDesc {
+  font-family: 'Spectral', Georgia, serif;
+  font-size: 0.74rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.25;
 }
 
 button.action {
